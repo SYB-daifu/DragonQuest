@@ -1,18 +1,40 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameplayManager : MonoBehaviour
+public class GameplayManager
 {
-    // Start is called before the first frame update
-    void Start()
+    private GameplayBase currentGameplay;
+
+    private bool isLoading = false;
+
+    public GameplayManager()
     {
-        
+        Stack<GameplayBase> stack = new Stack<GameplayBase>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool ChangeGameplay(Func<bool> callback)
     {
         
+        
+
+        return true;
+    }
+
+    public bool PushGameplay(Func<bool> callback)
+    {
+
+
+
+        return true;
+    }
+
+    public bool PopGameplay(Func<bool> callback)
+    {
+
+
+
+        return true;
     }
 }

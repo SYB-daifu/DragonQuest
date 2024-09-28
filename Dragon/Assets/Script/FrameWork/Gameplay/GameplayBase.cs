@@ -1,18 +1,51 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameplayBase : MonoBehaviour
+public class GameplayBase : GameplayInterface
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private bool isShow = false;
+
+    private bool isEnable = false;
+
+    public void Disable()
     {
-        
+        if(isShow)
+        {
+            OnHide();
+        }
+        isEnable = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Enable()
     {
-        
+        if(!isShow)
+        {
+            OnShow();
+        }
+        isEnable = true;
     }
+
+    public void Load(Func<bool> loadCallBack)
+    {
+        loadCallBack();
+    }
+
+    public void OnHide()
+    {
+        isShow = false;
+    }
+
+    public void OnShow()
+    {
+        isShow = true;
+    }
+
+    public void UnLoad()
+    {
+
+    }
+
 }
